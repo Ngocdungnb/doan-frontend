@@ -92,7 +92,7 @@ class MainPage extends Component {
 
         // Check Duplicate Files Upload
         // list ipfs hash from data result
-        await fetch(`http://localhost:3001/api/posts/get`, {
+        await fetch(`https://notarized-backend.herokuapp.com/api/posts/get`, {
           method: 'GET',
         })
           .then(res => res.json())
@@ -163,7 +163,7 @@ class MainPage extends Component {
        
     })
     // Save to database
-    await fetch(`http://localhost:3001/api/posts`, {
+    await fetch(`https://notarized-backend.herokuapp.com/api/posts`, {
       method: 'POST',
         credentials: 'include',
         headers: {
@@ -195,7 +195,7 @@ class MainPage extends Component {
             this.setState({ fileHash: resultDecoder.inputs[0]})
             console.log('link anh: ', this.state.fileHash)
           }
-          fetch(`http://localhost:3001/api/posts/get/${file}`, {
+          fetch(`https://notarized-backend.herokuapp.com/api/posts/get/${file}`, {
             method: 'GET'
           })
             .then(res => res.json())
